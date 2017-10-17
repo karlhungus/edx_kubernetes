@@ -11,6 +11,13 @@ spec:
     spec:
       containers:
       - name: webserver
-        image: nginx:alpine
+        image: nginx:1.9.1
         ports:
         - containerPort: 80
+        volumeMounts:
+        - name: hostvol
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: hostvol
+        hostPath:
+          path: /vol
