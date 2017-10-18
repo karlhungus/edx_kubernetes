@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: web-ingress
+spec:
+  rules:
+  - host: web.myweb.com
+    http:
+      paths:
+      - backend:
+          serviceName: web-service
+          servicePort: 80
+  - host: rsvp.myweb.com
+    http:
+      paths:
+      - backend:
+          serviceName: rsvp
+          servicePort: 80
